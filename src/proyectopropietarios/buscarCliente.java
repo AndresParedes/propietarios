@@ -180,7 +180,7 @@ public String Cod;
 
       tablaUsuario.addColumn("Codigo Cliente");
        tablaUsuario.addColumn("Nombre Cliente");
-        tablaUsuario.addColumn("Tipo Cedula/Ruc");
+        tablaUsuario.addColumn("Cedula/Ruc");
        tablaUsuario.addColumn("Direccion1");
        tablaUsuario.addColumn("Direccion2");
        tablaUsuario.addColumn("telefono");
@@ -225,8 +225,15 @@ public String Cod;
            dato[i]=rs.getString(i+1);
 Cod=dato[0]+"";
 Nomb =dato[1]+"";
+String ci=dato[2]+"";
+String dir=dato[3]+"";
+String tel=dato[5]+"";
+
 AlmacenFerreteria.jTextFieldNombre.setText(Nomb);
 AlmacenFerreteria.codigocli.setText(Cod);
+AlmacenFerreteria.direccion.setText(dir);
+AlmacenFerreteria.ci.setText(ci);
+AlmacenFerreteria.telefono.setText(tel);
 this.hide();
 
 
