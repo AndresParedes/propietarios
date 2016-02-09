@@ -28,6 +28,20 @@ public class ModificarUsuario extends JPanel {
             newButton.setVisible(false);
         }
     }
+    
+    
+    
+    
+             void limpiar(String valor){
+             
+             idUsuarioField.setText("");
+             nombreField.setText("");
+             contraseñaField.setText("");
+             
+             
+             
+             }
+             
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,6 +274,7 @@ tipoField.setText(COMBO);
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            JOptionPane.showMessageDialog(null, "Se ha actualizado el campo correctamente");  
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
@@ -270,7 +285,7 @@ tipoField.setText(COMBO);
             list.clear();
             list.addAll(merged);
         }
-                JOptionPane.showMessageDialog(null, "Se a actualizado el campo correctamente");
+           
 
     }//GEN-LAST:event_saveButtonActionPerformed
 

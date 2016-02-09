@@ -326,6 +326,7 @@ public class ModificarCliente extends JPanel {
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            JOptionPane.showMessageDialog(null, "Se ha actualizado el campo correctamente");
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
@@ -336,7 +337,7 @@ public class ModificarCliente extends JPanel {
             list.clear();
             list.addAll(merged);
         }
-        JOptionPane.showMessageDialog(null, "Se a actualizado el campo correctamente");
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
