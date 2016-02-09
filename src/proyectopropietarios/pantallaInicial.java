@@ -157,6 +157,11 @@ public class pantallaInicial extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nuevaVenta1.png"))); // NOI18N
         jMenuItem5.setText("Nueva Compra");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
 
         menuBar.add(jMenu3);
@@ -283,6 +288,11 @@ public class pantallaInicial extends javax.swing.JFrame {
                 frame.pack();
                 frame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       AlmacenFerreteria p1= new AlmacenFerreteria();
+       p1.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
