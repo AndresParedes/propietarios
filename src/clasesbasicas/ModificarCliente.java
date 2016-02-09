@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -335,6 +336,7 @@ public class ModificarCliente extends JPanel {
             list.clear();
             list.addAll(merged);
         }
+        JOptionPane.showMessageDialog(null, "Se a actualizado el campo correctamente");
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
