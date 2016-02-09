@@ -65,16 +65,17 @@ public class pantallaInicial extends javax.swing.JFrame {
         ESCRITORIO.setLayout(ESCRITORIOLayout);
         ESCRITORIOLayout.setHorizontalGroup(
             ESCRITORIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         ESCRITORIOLayout.setVerticalGroup(
             ESCRITORIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 253, Short.MAX_VALUE)
         );
 
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuBar.setName("FERRETERIA JAVELAR"); // NOI18N
 
+        fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/cliente.png"))); // NOI18N
         fileMenu.setMnemonic('f');
         fileMenu.setText("Clientes");
 
@@ -98,6 +99,7 @@ public class pantallaInicial extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
+        editMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/articulo.png"))); // NOI18N
         editMenu.setMnemonic('e');
         editMenu.setText("Articulos");
 
@@ -121,6 +123,7 @@ public class pantallaInicial extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/proveedor.png"))); // NOI18N
         jMenu1.setText("Proveedores");
 
         jMenuItem1.setText("Registar Proveedores");
@@ -149,15 +152,19 @@ public class pantallaInicial extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ventas.png"))); // NOI18N
         jMenu3.setText("Ventas");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nuevaVenta1.png"))); // NOI18N
         jMenuItem5.setText("Nueva Compra");
         jMenu3.add(jMenuItem5);
 
         menuBar.add(jMenu3);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/admin.png"))); // NOI18N
         jMenu2.setText("Administracion");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/registro_usuario1.png"))); // NOI18N
         jMenuItem3.setText("Registar Usuario");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +173,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/buscar.png"))); // NOI18N
         jMenuItem4.setText("Buscar Usuario");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,9 +184,11 @@ public class pantallaInicial extends javax.swing.JFrame {
 
         menuBar.add(jMenu2);
 
+        helpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ayuda_1.png"))); // NOI18N
         helpMenu.setMnemonic('h');
         helpMenu.setText("Ayuda");
 
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/manual1.png"))); // NOI18N
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("Manual");
         helpMenu.add(aboutMenuItem);
