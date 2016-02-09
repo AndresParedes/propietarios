@@ -70,7 +70,7 @@ public class IngresarProveedores extends JPanel {
         contactoField = new javax.swing.JTextField();
         ext1Field = new javax.swing.JTextField();
         ext2Field = new javax.swing.JTextField();
-        saveButton = new javax.swing.JButton();
+        guardar = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
@@ -225,13 +225,13 @@ public class IngresarProveedores extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), ext2Field, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
-        saveButton.setText("Save");
-        saveButton.addActionListener(formListener);
+        guardar.setText("Guardar");
+        guardar.addActionListener(formListener);
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(formListener);
 
-        newButton.setText("New");
+        newButton.setText("Nuevo");
         newButton.addActionListener(formListener);
 
         deleteButton.setText("Delete");
@@ -251,7 +251,7 @@ public class IngresarProveedores extends JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(newButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton))
+                        .addComponent(guardar))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +295,7 @@ public class IngresarProveedores extends JPanel {
                 .addGap(76, 76, 76))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {deleteButton, newButton, refreshButton, saveButton});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {deleteButton, guardar, newButton, refreshButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +360,7 @@ public class IngresarProveedores extends JPanel {
                     .addComponent(refreshButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveButton)
+                    .addComponent(guardar)
                     .addComponent(newButton))
                 .addContainerGap())
         );
@@ -373,8 +373,8 @@ public class IngresarProveedores extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
-                IngresarProveedores.this.saveButtonActionPerformed(evt);
+            if (evt.getSource() == guardar) {
+                IngresarProveedores.this.guardarActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
                 IngresarProveedores.this.refreshButtonActionPerformed(evt);
@@ -422,7 +422,7 @@ public class IngresarProveedores extends JPanel {
         masterTable.scrollRectToVisible(masterTable.getCellRect(row, 0, true));
     }//GEN-LAST:event_newButtonActionPerformed
     
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
@@ -436,7 +436,7 @@ public class IngresarProveedores extends JPanel {
             list.clear();
             list.addAll(merged);
         }
-    }//GEN-LAST:event_saveButtonActionPerformed
+    }//GEN-LAST:event_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -458,6 +458,7 @@ public class IngresarProveedores extends JPanel {
     private javax.swing.JLabel ext2Label;
     private javax.swing.JTextField faxField;
     private javax.swing.JLabel faxLabel;
+    private javax.swing.JButton guardar;
     private javax.swing.JTextField idProveedorField;
     private javax.swing.JLabel idProveedorLabel;
     private java.util.List<clasesbasicas.Proveedor> list;
@@ -470,7 +471,6 @@ public class IngresarProveedores extends JPanel {
     private javax.swing.JButton refreshButton;
     private javax.swing.JTextField rucField;
     private javax.swing.JLabel rucLabel;
-    private javax.swing.JButton saveButton;
     private javax.swing.JTextField telefono1Field;
     private javax.swing.JLabel telefono1Label;
     private javax.swing.JTextField telefono2Field;
