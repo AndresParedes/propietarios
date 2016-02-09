@@ -94,7 +94,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     public AlmacenFerreteria() {
         initComponents();
         this.setLocationRelativeTo(null);
-       
+       codigocli.setVisible(false);
         // default tabla
         modelo = new DefaultTableModel();
         // Agrega fila
@@ -113,36 +113,40 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         }
         
         
+        
+        
+        
+        
         // Agrega en JCombox de Productos
-        JComboxProducto.addItem("");
-        JComboxProducto.addItem("Ladrillo Farol");
-        JComboxProducto.addItem("Ladrillo caravista");
-        JComboxProducto.addItem("Ladrillo estrucutral");
-        JComboxProducto.addItem("Cemento blanco 40kl");
-        JComboxProducto.addItem("Cemento blanco 20kl");
-        JComboxProducto.addItem("Cemento Gris");
-        JComboxProducto.addItem("Mastick (Masilla)");
-        JComboxProducto.addItem("Carretilla");
-        JComboxProducto.addItem("Pala");
-        JComboxProducto.addItem("Azadon");
-        JComboxProducto.addItem("Pica");
-        JComboxProducto.addItem("Martillo");
-        JComboxProducto.addItem("Brocha");
-        JComboxProducto.addItem("Pintura Unidas");
-        JComboxProducto.addItem("Pintura Condor");
-        JComboxProducto.addItem("Tubos Rival");
-        JComboxProducto.addItem("Varilla 12 pulgadas");
-        JComboxProducto.addItem("Varilla 14 pulgadas");
-        JComboxProducto.addItem("Varilla 18 pulgadas");
-        JComboxProducto.addItem("Marcilla Tarro");
+//        JComboxProducto.addItem("");
+//        JComboxProducto.addItem("Ladrillo Farol");
+//        JComboxProducto.addItem("Ladrillo caravista");
+//        JComboxProducto.addItem("Ladrillo estrucutral");
+//        JComboxProducto.addItem("Cemento blanco 40kl");
+//        JComboxProducto.addItem("Cemento blanco 20kl");
+//        JComboxProducto.addItem("Cemento Gris");
+//        JComboxProducto.addItem("Mastick (Masilla)");
+//        JComboxProducto.addItem("Carretilla");
+//        JComboxProducto.addItem("Pala");
+//        JComboxProducto.addItem("Azadon");
+//        JComboxProducto.addItem("Pica");
+//        JComboxProducto.addItem("Martillo");
+//        JComboxProducto.addItem("Brocha");
+//        JComboxProducto.addItem("Pintura Unidas");
+//        JComboxProducto.addItem("Pintura Condor");
+//        JComboxProducto.addItem("Tubos Rival");
+//        JComboxProducto.addItem("Varilla 12 pulgadas");
+//        JComboxProducto.addItem("Varilla 14 pulgadas");
+//        JComboxProducto.addItem("Varilla 18 pulgadas");
+//        JComboxProducto.addItem("Marcilla Tarro");
         
         // Leer la fecha de computador y colocarlo el cuadro de fecha
         //-------------------------------------
         Date fechaActual = new Date();
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = formateador.format(fechaActual);
-        jTextFieldFecha.setText(fecha);
-        jTextFieldFecha.setEditable(false);
+//        jTextFieldFecha.setText(fecha);
+//        jTextFieldFecha.setEditable(false);
         //-------------------------------------------
         
         
@@ -190,8 +194,6 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldFecha = new javax.swing.JTextField();
-        JComboxProducto = new javax.swing.JComboBox();
         jTextFieldCodProducto = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -204,6 +206,11 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jTextFieldNo = new javax.swing.JTextField();
         jTextFieldCant = new javax.swing.JTextField();
         jTextFieldImporte = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        codigocli = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -324,36 +331,19 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "DATOS DE VENTA", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Times New Roman", 1, 14))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Valor $");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
         jTextFieldFactura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(jTextFieldFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Cliente");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, 20));
 
         jTextFieldNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Fecha");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 20));
-
-        jTextFieldFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 90, -1));
-
-        JComboxProducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JComboxProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JComboxProductoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(JComboxProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 170, -1));
 
         jTextFieldCodProducto.setEditable(false);
         jTextFieldCodProducto.setBackground(new java.awt.Color(255, 255, 255));
@@ -363,32 +353,25 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                 jTextFieldCodProductoActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldCodProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, -1));
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 500, 10));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("No. Fact:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Cant.");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jTextFieldValor.setEditable(false);
         jTextFieldValor.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldValor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel2.add(jTextFieldValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 60, -1));
 
         xcant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         xcant.setModel(new javax.swing.SpinnerNumberModel(1, 0, 30, 1));
         xcant.setToolTipText("");
-        jPanel2.add(xcant, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 50, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("COD");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/button-add.png"))); // NOI18N
@@ -399,14 +382,136 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 130, 32));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Productos");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
-        jPanel2.add(jTextFieldNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 50, -1));
-        jPanel2.add(jTextFieldCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 50, -1));
-        jPanel2.add(jTextFieldImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 60, -1));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/button-add.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/button-add.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel4)
+                .addGap(7, 7, 7)
+                .addComponent(jTextFieldFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2)
+                .addGap(8, 8, 8)
+                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextFieldNo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextFieldCant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextFieldImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(codigocli, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jTextFieldCodProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel1))
+                            .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel5))
+                            .addComponent(xcant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(8, 8, 8)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(5, 5, 5)
+                        .addComponent(jTextFieldCodProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(5, 5, 5)
+                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(5, 5, 5)
+                        .addComponent(xcant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addGap(5, 5, 5)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codigocli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 0, 0));
@@ -704,7 +809,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -739,9 +844,9 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
@@ -758,153 +863,6 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JComboxProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboxProductoActionPerformed
-           
-        // Valor de que haya seleccionado la posicion
-        int n = JComboxProducto.getSelectedIndex();
-
-        if(n==1)
-        {
-            valor = (double) precioLadrillofarol; 
-            jTextFieldCodProducto.setText(String.valueOf(1));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Ladrillo Farol";
-        }
-        if(n==2)
-        {
-            valor = (double) precioLadrillocaravista; 
-            jTextFieldCodProducto.setText(String.valueOf(2));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Ladrillo caravista";
-        }
-        if(n==3)
-        {
-            valor = (double) precioLadrilloestructural; 
-            jTextFieldCodProducto.setText(String.valueOf(3));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Ladrillo estructural";
-        }
-         if(n==4)
-        {
-            valor = (double) precioCementoblanco20; 
-            jTextFieldCodProducto.setText(String.valueOf(4));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Cemento blanco 20 kl";
-        }
-         if(n==5)
-        {
-            valor = (double) precioCementoblanco40; 
-            jTextFieldCodProducto.setText(String.valueOf(5));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Cemento blanco 40 kl";
-        }
-        if(n==6)
-        {
-            valor = (double) precioCementogris; 
-            jTextFieldCodProducto.setText(String.valueOf(6));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Cemento gris";
-        }
-        if(n==7)
-        {
-            valor = (double) precioMastick; 
-            jTextFieldCodProducto.setText(String.valueOf(7));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Mastick (Masilla)";
-        }
-        if(n==8)
-        {
-            valor = (double) precioCarreta; 
-            jTextFieldCodProducto.setText(String.valueOf(8));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Carreta";
-        }
-        if(n==9)
-        {
-            valor = (double) precioPala; 
-            jTextFieldCodProducto.setText(String.valueOf(9));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Pala";
-        }
-        if(n==10)
-        {
-            valor = (double) precioAzadon; 
-            jTextFieldCodProducto.setText(String.valueOf(10));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Azadom";
-        }
-        if(n==11)
-        {
-            valor = (double) precioPica; 
-            jTextFieldCodProducto.setText(String.valueOf(11));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Pica";
-        }
-        if(n==12)
-        {
-            valor = (double) precioMartillo; 
-            jTextFieldCodProducto.setText(String.valueOf(12));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Martillo";
-        }
-        if(n==13)
-        {
-            valor = (double) precioBrocha; 
-            jTextFieldCodProducto.setText(String.valueOf(13));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Brocha";
-        }
-        if(n==14)
-        {
-            valor = (double) precioPinturasCondor; 
-            jTextFieldCodProducto.setText(String.valueOf(14));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Pinturas Condor";
-        }
-        if(n==15)
-        {
-            valor = (double) precioPinturasUnidas; 
-            jTextFieldCodProducto.setText(String.valueOf(15));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Pinturas Unidas";
-        }
-         if(n==16)
-        {
-            valor = (double) precioTubosRival; 
-            jTextFieldCodProducto.setText(String.valueOf(16));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Tubos Rival";
-        }
-         if(n==17)
-        {
-            valor = (double) precioVarilla12pulagadas; 
-            jTextFieldCodProducto.setText(String.valueOf(17));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Varilla 12 pulagadas";
-        }
-         if(n==18)
-        {
-            valor = (double) precioVarilla14pulagadas; 
-            jTextFieldCodProducto.setText(String.valueOf(18));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Varilla 14 pulagadas";
-        }
-          if(n==19)
-        {
-            valor = (double) precioVarilla18pulagadas; 
-            jTextFieldCodProducto.setText(String.valueOf(19));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Varilla 18 pulagadas";
-        }
-          if(n==20)
-        {
-            valor = (double) precioMarcillaTarro; 
-            jTextFieldCodProducto.setText(String.valueOf(20));
-            jTextFieldValor.setText(String.valueOf(valor));
-            nombreProductos = "Marcilla Tarro";
-        }
-    }//GEN-LAST:event_JComboxProductoActionPerformed
 
     private void jTextFieldCodProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodProductoActionPerformed
         // TODO add your handling code here:
@@ -1006,7 +964,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
          
          codnew = Double.parseDouble(JOptionPane.showInputDialog("Introduce el codigo de nuevo productos."));
          producto = JOptionPane.showInputDialog("¿Cual es el nuevo producto?");
-         JComboxProducto.addItem(producto);
+//         JComboxProducto.addItem(producto);
          posicion = posicion+21;
          precios = Double.parseDouble(JOptionPane.showInputDialog("¿Cuanto cuesta el prodcuto "+producto+" ?"));
          JOptionPane.showMessageDialog(null, "Producto agregado");
@@ -1083,7 +1041,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         String dic = ubic.getText();
         String fact = jTextFieldFactura.getText();
         String Cliente = jTextFieldNombre.getText();
-        String Fecha = jTextFieldFecha.getText();
+//        String Fecha = jTextFieldFecha.getText();
         String totals = jTextFieldTotal.getText();
         Image imagen,publicidad;
         
@@ -1110,7 +1068,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
             document.add(new Paragraph("RUC: 1890075564001 "));
             document.add(new Paragraph("Numero Fact: "+fact));
             document.add(new Paragraph("Cliente : "+Cliente));
-            document.add(new Paragraph("Fecha   : [ "+Fecha+" ] - Total a Pagar : $ "+totals+"  Dolares"));
+//            document.add(new Paragraph("Fecha   : [ "+Fecha+" ] - Total a Pagar : $ "+totals+"  Dolares"));
             document.add(new Paragraph(" "));
             document.add(new Paragraph(""));
             document.add(new Paragraph("| Nº.  | COD. |    PRODUCTOS                                              | CANT | VALOR UNIT"
@@ -1203,6 +1161,19 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
          precioMarcillaTarro = Double.parseDouble(JOptionPane.showInputDialog("Introduce el precio de la Marcilla de tarro"));// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem26ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       buscarCliente p1=new buscarCliente();
+      p1.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+      
+         buscarProducto p1=new buscarProducto();
+         p1.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1239,12 +1210,15 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox JComboxProducto;
     public static javax.swing.JTable JTableProduct;
+    public static javax.swing.JTextField codigocli;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JDialog jDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1294,14 +1268,14 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCant;
     private javax.swing.JTextField jTextFieldCodProducto;
     private javax.swing.JTextField jTextFieldFactura;
-    private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldImporte;
     private javax.swing.JTextField jTextFieldImpuesto;
     private javax.swing.JTextField jTextFieldNo;
-    private javax.swing.JTextField jTextFieldNombre;
+    public static javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldSubtotal;
     private javax.swing.JTextField jTextFieldTotal;
     private javax.swing.JTextField jTextFieldValor;
