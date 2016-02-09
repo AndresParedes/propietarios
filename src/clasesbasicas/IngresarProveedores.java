@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -426,6 +427,7 @@ public class IngresarProveedores extends JPanel {
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            JOptionPane.showMessageDialog(null, "Se ha ingresado correctamente");
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();

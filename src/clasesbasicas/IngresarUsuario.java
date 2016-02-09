@@ -298,6 +298,7 @@ tipoField.setText(COMBO);
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            JOptionPane.showMessageDialog(null, "Se ha ingresado correctamente");
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
