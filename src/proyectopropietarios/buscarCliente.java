@@ -8,6 +8,7 @@ package proyectopropietarios;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyectopropietarios.AlmacenFerreteria;
 
@@ -207,7 +208,24 @@ public String Cod;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+
+        
+         String cod;
+        
+        int fila= tabla.getSelectedRow();
+        if(fila>=0){
+        buscar.setText(tabla.getValueAt(fila, 1).toString());
        
+        
+
+    }
+    else{
+    JOptionPane.showMessageDialog(null,"no seleciono fila");
+    }
+  
+         
+        
+        
     }//GEN-LAST:event_tablaMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -224,12 +242,12 @@ public String Cod;
           for (int i=0; i<7; i++){
            dato[i]=rs.getString(i+1);
 Cod=dato[0]+"";
-Nomb =dato[1]+"";
+Nomb =dato[1]+"".toString().trim();
 String ci=dato[2]+"";
 String dir=dato[3]+"";
 String tel=dato[5]+"";
 
-AlmacenFerreteria.jTextFieldNombre.setText(Nomb);
+AlmacenFerreteria.jTextFieldNombre.setText(Nomb.trim());
 AlmacenFerreteria.codigocli.setText(Cod);
 AlmacenFerreteria.direccion.setText(dir);
 AlmacenFerreteria.ci.setText(ci);

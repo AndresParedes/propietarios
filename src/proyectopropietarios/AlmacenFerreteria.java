@@ -323,6 +323,11 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jLabel2.setText("Cliente");
 
         jTextFieldNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Fecha");
@@ -890,6 +895,10 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     /**
      * @param args the command line arguments
