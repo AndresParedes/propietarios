@@ -9,6 +9,7 @@ import clasesbasicas.IngresarUsuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,8 @@ public class LOG extends javax.swing.JFrame {
      */
     public LOG() {
         initComponents();
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/compras.png")).getImage());
     }
 
     /**

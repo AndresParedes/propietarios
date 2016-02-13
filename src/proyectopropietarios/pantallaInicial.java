@@ -5,6 +5,7 @@
  */
 package proyectopropietarios;
 
+import splashs.splash1;
 import clasesbasicas.IngresarClientes;
 import clasesbasicas.IngresarProductos;
 import clasesbasicas.IngresarProveedores;
@@ -14,6 +15,7 @@ import clasesbasicas.ModificarProducto;
 import clasesbasicas.ModificarProveedor;
 import clasesbasicas.ModificarUsuario;
 import javax.swing.JFrame;
+import splashs.*;
 
 /**
  *
@@ -242,35 +244,24 @@ public class pantallaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-  JFrame frame = new JFrame();
-                frame.setContentPane(new IngresarClientes());
-               
-                frame.pack();
-                frame.setVisible(true);
+
+        new splash1().setVisible(true);
+       
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-           JFrame frame = new JFrame();
-                frame.setContentPane(new ModificarCliente());
-                
-                frame.pack();
-                frame.setVisible(true);
+        new splash2().setVisible(true);   
+        
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
-          JFrame frame = new JFrame();
-                frame.setContentPane(new IngresarProductos());
-                
-                frame.pack();
-                frame.setVisible(true);
+ new splash3().setVisible(true); 
+        
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
-        JFrame frame = new JFrame();
-                frame.setContentPane(new ModificarProducto());
-               
-                frame.pack();
-                frame.setVisible(true);
+ new splash4().setVisible(true); 
+       
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
