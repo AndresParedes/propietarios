@@ -14,6 +14,7 @@ import clasesbasicas.ModificarCliente;
 import clasesbasicas.ModificarProducto;
 import clasesbasicas.ModificarProveedor;
 import clasesbasicas.ModificarUsuario;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import splashs.*;
 
@@ -28,6 +29,7 @@ public class pantallaInicial extends javax.swing.JFrame {
      */
     public pantallaInicial() {
         initComponents();
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/compras.png")).getImage());
     }
 
     /**
