@@ -248,7 +248,7 @@ String dir=dato[3]+"";
 String tel=dato[5]+"";
 
 AlmacenFerreteria.jTextFieldNombre.setText(Nomb.trim());
-//AlmacenFerreteria.codigocli.setText(Cod);
+AlmacenFerreteria.idcliente.setText(Cod);
 AlmacenFerreteria.direccion.setText(dir);
 AlmacenFerreteria.ci.setText(ci);
 AlmacenFerreteria.telefono.setText(tel);

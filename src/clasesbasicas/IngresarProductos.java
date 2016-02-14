@@ -7,6 +7,8 @@ package clasesbasicas;
 
 import java.awt.EventQueue;
 import java.beans.Beans;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import proyectopropietarios.conexion;
 
 /**
  *
@@ -27,6 +30,21 @@ public class IngresarProductos extends JPanel {
             entityManager.getTransaction().begin();
             deleteButton.setVisible(false);
             refreshButton.setVisible(false);
+            proveedorField.setVisible(false);
+            
+               this.combo.removeAllItems();
+   
+        try{
+        conexion conectar = new conexion();
+        Statement st = conectar.Conectar();
+        ResultSet rs= st.executeQuery("SELECT razonsocial from producto");
+        while (rs.next()){
+        this.combo.addItem(rs.getString("razonsocial"));
+        }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         }
     }
 
@@ -71,6 +89,7 @@ public class IngresarProductos extends JPanel {
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        combo = new javax.swing.JComboBox();
 
         FormListener formListener = new FormListener();
 
@@ -216,6 +235,8 @@ public class IngresarProductos extends JPanel {
 
         deleteButton.addActionListener(formListener);
 
+        combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -248,7 +269,6 @@ public class IngresarProductos extends JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(idProductoField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(nombreProductoField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                                    .addComponent(proveedorField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(descripcionField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(stockField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(stockmedioField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
@@ -256,7 +276,8 @@ public class IngresarProductos extends JPanel {
                                     .addComponent(ivaField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(iceField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                     .addComponent(precioventaField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                                    .addComponent(preciocompraField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)))
+                                    .addComponent(preciocompraField, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                                    .addComponent(combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -265,6 +286,9 @@ public class IngresarProductos extends JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(refreshButton)
                 .addGap(93, 93, 93))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(proveedorField, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addGap(49, 49, 49))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {deleteButton, newButton, refreshButton, saveButton});
@@ -285,7 +309,7 @@ public class IngresarProductos extends JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proveedorLabel)
-                    .addComponent(proveedorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descripcionLabel)
@@ -318,7 +342,9 @@ public class IngresarProductos extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(preciocompraLabel)
                     .addComponent(preciocompraField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(17, 17, 17)
+                .addComponent(proveedorField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteButton)
                     .addComponent(refreshButton))
@@ -378,6 +404,7 @@ public class IngresarProductos extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
+
         clasesbasicas.Producto p = new clasesbasicas.Producto();
         entityManager.persist(p);
         list.add(p);
@@ -387,6 +414,8 @@ public class IngresarProductos extends JPanel {
     }//GEN-LAST:event_newButtonActionPerformed
     
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+         String COMBO=this.combo.getSelectedItem().toString();
+         proveedorField.setText(COMBO);
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
@@ -405,6 +434,7 @@ public class IngresarProductos extends JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox combo;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField descripcionField;
     private javax.swing.JLabel descripcionLabel;

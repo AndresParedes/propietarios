@@ -31,6 +31,9 @@ import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,28 +63,10 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
      double n = 0;
      int x=0;
      double subtotal=0;
-    // Valor de Productos
-//     double precioLadrillofarol = 9.50;
-//     double precioLadrillocaravista = 10.00;
-//     double precioLadrilloestructural = 4.80;
-//     double precioCementoblanco40 = 4.60;
-//     double precioCementoblanco20 = 23.50;
-//     double precioCementogris = 25.50;
-//     double precioMastick = 10.00;
-//     double precioCarreta = 8.35;
-//     double precioPala = 25.00;
-//     double precioAzadon = 36.00;
-//     double precioPica = 50.00;
-//     double precioMartillo = 1.00;
-//     double precioBrocha = 2.00;
-//     double precioPinturasCondor = 4.00;
-//     double precioPinturasUnidas = 3.00;
-//     double precioTubosRival = 12.00;
-//     double precioVarilla12pulagadas = 2.10;
-//     double precioVarilla14pulagadas = 2.10;
-//     double precioVarilla18pulagadas = 2.10;
-//     double precioMarcillaTarro = 5.00;
-     
+   
+   
+      
+        
      
      // Variable Nombre
      String nombreProductos;     
@@ -95,6 +80,26 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
      
     public AlmacenFerreteria() {
         initComponents();
+        this.idcliente.setVisible(false);
+          try{
+        conexion conectar = new conexion();
+        Statement st = conectar.Conectar();
+        
+      
+        boolean rt =st.execute("insert into factura (comentario)values('') ");
+  
+        ResultSet rs= st.executeQuery("  SELECT TOP 1 *FROM factura ORDER BY numero_factura DESC ");
+        rs.next();
+        this.jTextFieldFactura.setText(rs.getString("numero_factura"));
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+        
         this.setLocationRelativeTo(null);
        
         // default tabla
@@ -117,44 +122,17 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         
         
         
+
         
-        
-        // Agrega en JCombox de Productos
-//        JComboxProducto.addItem("");
-//        JComboxProducto.addItem("Ladrillo Farol");
-//        JComboxProducto.addItem("Ladrillo caravista");
-//        JComboxProducto.addItem("Ladrillo estrucutral");
-//        JComboxProducto.addItem("Cemento blanco 40kl");
-//        JComboxProducto.addItem("Cemento blanco 20kl");
-//        JComboxProducto.addItem("Cemento Gris");
-//        JComboxProducto.addItem("Mastick (Masilla)");
-//        JComboxProducto.addItem("Carretilla");
-//        JComboxProducto.addItem("Pala");
-//        JComboxProducto.addItem("Azadon");
-//        JComboxProducto.addItem("Pica");
-//        JComboxProducto.addItem("Martillo");
-//        JComboxProducto.addItem("Brocha");
-//        JComboxProducto.addItem("Pintura Unidas");
-//        JComboxProducto.addItem("Pintura Condor");
-//        JComboxProducto.addItem("Tubos Rival");
-//        JComboxProducto.addItem("Varilla 12 pulgadas");
-//        JComboxProducto.addItem("Varilla 14 pulgadas");
-//        JComboxProducto.addItem("Varilla 18 pulgadas");
-//        JComboxProducto.addItem("Marcilla Tarro");
-        
-        // Leer la fecha de computador y colocarlo el cuadro de fecha
-        //-------------------------------------
+     
         Date fechaActual = new Date();
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = formateador.format(fechaActual);
-//        jTextFieldFecha.setText(fecha);
-//        jTextFieldFecha.setEditable(false);
-        //-------------------------------------------
-        
+
         
     }
     
-    // Parte de Llamada de Ventana de PDF
+  
     private void llamarJDialogPDF() {
 
 
@@ -219,6 +197,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         ci = new javax.swing.JTextField();
         stock = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        idcliente = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -318,6 +297,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Valor $");
 
+        jTextFieldFactura.setEditable(false);
         jTextFieldFactura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -400,6 +380,12 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("CI/RUC");
 
+        ci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ciActionPerformed(evt);
+            }
+        });
+
         stock.setEditable(false);
         stock.setBackground(new java.awt.Color(255, 255, 255));
         stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -448,9 +434,11 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ci, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 72, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,7 +499,8 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -718,6 +707,9 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     }//GEN-LAST:event_codproActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       int STOCK=Integer.parseInt(stock.getText().trim());
+       
+     
         double Valor=Double.valueOf(precio.getText());
         x=1+x; 
         n = 1+n;
@@ -725,7 +717,8 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         // leer la cantidad pedidas
        cant = (int) xcant.getValue();
         double importe = Valor*cant;
-        
+        int xx= STOCK-cant;
+          String ss=xx+"";
         //problema de obrtener valor de spinner toca dar vuelta
         //jTextFieldCant.setText(String.valueOf(cant));
        // jTextFieldImporte.setText(String.valueOf(importe));
@@ -752,6 +745,9 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         // sumar total
         double total = imp+subtotals;
         jTextFieldTotal.setText(String.valueOf(total));
+        
+        stock.setText(ss);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -858,7 +854,7 @@ String Fecha=dia+"-"+mes+"-"+año;
             document.add(new Paragraph("RUC: 1890075564001 "));
             document.add(new Paragraph("Numero Fact: "+fact));
             document.add(new Paragraph("Cliente : "+Cliente));
-            document.add(new Paragraph("Fecha   : [ "+Fecha+" ] - Total a Pagar : $ "+totals+"  Dolares"));
+            document.add(new Paragraph("Fecha   : [ "+Fecha+" ]"));
             document.add(new Paragraph(" "));
             document.add(new Paragraph(""));
             document.add(new Paragraph("| Nº.  | COD. |    PRODUCTOS                                              | CANT | VALOR UNIT"
@@ -875,7 +871,7 @@ String Fecha=dia+"-"+mes+"-"+año;
             g2.dispose();
             cb.addTemplate(tp, 50, 15);
             
-            
+              document.add(new Paragraph("-                                   Total a Pagar : $ "+totals+"  Dolares"));
             
             // PARA COLOCAR FOOTER
             Font font = new Font();
@@ -930,8 +926,58 @@ String Fecha=dia+"-"+mes+"-"+año;
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+     
+       conexion conectar = new conexion();
+       Statement st = conectar.Conectar();
+       
+       
+       
+            
+            String Numerofactura=jTextFieldFactura.getText().trim();
+            int año=0;
+int mes=0;
+int dia=0;
+año=this.fecha.getCalendar().get(Calendar.YEAR);
+ mes=this.fecha.getCalendar().get(Calendar.MONTH);
+mes =mes+1;
+ dia=this.fecha.getCalendar().get(Calendar.DATE);
+
+String Fecha=dia+"-"+mes+"-"+año;
+           
+            String Comentario=comentario.getText();
+            String Nombreclie=jTextFieldNombre.getText();
+            String Idcliente=idcliente.getText();
+            String telefonoclie=telefono.getText();
+            String Direccion=direccion.getText();
+            String CI=ci.getText();
+            String id_detalle="";
+            String Id_factura="";
+            String ID_producto="";
+            String Producto="";
+            String Precio="";
+            
+            
+            try
+        {
+
+            boolean rt =st.execute("update factura  set fecha_emision='"+Fecha+"',comentario='"+Comentario+"',nombre_cliente='"+Nombreclie+"',id_cliente='"+Idcliente+"',telefono_cliente='"+telefonoclie+"',direccion_cliente='"+Direccion+"',documento_cliente='"+CI+"' where numero_factura='"+Numerofactura+"' ");
+
+           JOptionPane.showMessageDialog(null,"factura ingresada");
+         
+
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void ciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ciActionPerformed
 
     /**
      * @param args the command line arguments
@@ -975,6 +1021,7 @@ String Fecha=dia+"-"+mes+"-"+año;
     private javax.swing.JTextField comentario;
     public static javax.swing.JTextField direccion;
     private com.toedter.calendar.JDateChooser fecha;
+    public static javax.swing.JTextField idcliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

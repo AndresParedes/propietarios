@@ -25,7 +25,8 @@ public class splash extends javax.swing.JFrame {
      */
     public splash() {
         initComponents();
-        
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/compras.png")).getImage());
+
          //setIconImage(new ImageIcon(getClass().getResource("/Imagenes/doctor.png")).getImage());
        ((JPanel) getContentPane()).setOpaque(false);
         //ImageIcon uno = new ImageIcon(this.getClass().getResource("/Imagenes/fondoFrutas.png"));
