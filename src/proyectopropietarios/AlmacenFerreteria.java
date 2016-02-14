@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -207,7 +208,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         nombrepro = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        fecha = new com.toedter.calendar.JDateChooser();
         comentario = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         telefono = new javax.swing.JTextField();
@@ -229,6 +230,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jTextFieldImpuesto = new javax.swing.JTextField();
         jTextFieldSubtotal = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -441,7 +443,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -493,7 +495,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNombre)
@@ -595,6 +597,16 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jTextFieldSubtotal.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldSubtotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(0, 153, 0));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/document-new (1).png"))); // NOI18N
+        jButton7.setText("GUARDAR");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/imprimirdatos.png"))); // NOI18N
         jMenu4.setText("IMPRIMIR");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -639,7 +651,9 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(10, 10, 10)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
@@ -683,11 +697,17 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                     .addComponent(jTextFieldSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(jLabel12))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -803,7 +823,15 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         String dic = ubic.getText();
         String fact = jTextFieldFactura.getText();
         String Cliente = jTextFieldNombre.getText();
-//        String Fecha = jTextFieldFecha.getText();
+        int año=0;
+int mes=0;
+int dia=0;
+año=this.fecha.getCalendar().get(Calendar.YEAR);
+ mes=this.fecha.getCalendar().get(Calendar.MONTH);
+mes =mes+1;
+ dia=this.fecha.getCalendar().get(Calendar.DATE);
+
+String Fecha=dia+"-"+mes+"-"+año;
         String totals = jTextFieldTotal.getText();
         Image imagen,publicidad;
         
@@ -830,7 +858,7 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
             document.add(new Paragraph("RUC: 1890075564001 "));
             document.add(new Paragraph("Numero Fact: "+fact));
             document.add(new Paragraph("Cliente : "+Cliente));
-//            document.add(new Paragraph("Fecha   : [ "+Fecha+" ] - Total a Pagar : $ "+totals+"  Dolares"));
+            document.add(new Paragraph("Fecha   : [ "+Fecha+" ] - Total a Pagar : $ "+totals+"  Dolares"));
             document.add(new Paragraph(" "));
             document.add(new Paragraph(""));
             document.add(new Paragraph("| Nº.  | COD. |    PRODUCTOS                                              | CANT | VALOR UNIT"
@@ -901,6 +929,10 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -942,13 +974,14 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     public static javax.swing.JTextField codpro;
     private javax.swing.JTextField comentario;
     public static javax.swing.JTextField direccion;
+    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton jButton7;
     private javax.swing.JDialog jDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
