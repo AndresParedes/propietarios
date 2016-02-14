@@ -25,6 +25,7 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.HeadlessException;
 import java.awt.Shape;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -470,8 +471,9 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(xcant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -707,8 +709,10 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
     }//GEN-LAST:event_codproActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       int STOCK=Integer.parseInt(stock.getText().trim());
-       
+
+        
+        int STOCK=Integer.parseInt(stock.getText().trim());
+        
      
         double Valor=Double.valueOf(precio.getText());
         x=1+x; 
@@ -718,20 +722,18 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
        cant = (int) xcant.getValue();
         double importe = Valor*cant;
         int xx= STOCK-cant;
-          String ss=xx+"";
-        //problema de obrtener valor de spinner toca dar vuelta
-        //jTextFieldCant.setText(String.valueOf(cant));
-       // jTextFieldImporte.setText(String.valueOf(importe));
+          String ss=xx+"".trim();
+      
        
         
         //Agregar datos a la tabla        
         String datos [] = new String [6];
-        datos [0] = x+"".toString().trim();
+        datos [0] = x+"".trim();
         datos [1]  = codpro.getText();
-        datos [2] = nombreProductos;
-        datos [3] = cant+"".toString().trim();
+        datos [2] = nombrepro.getText();
+        datos [3] = cant+"".trim();
         datos [4] = precio.getText();
-        datos [5] = importe+"".toString().trim();
+        datos [5] = importe+"".trim();
         modelo.addRow(datos);
         
         // subtotal
@@ -748,14 +750,32 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         
         stock.setText(ss);
         
+        
+        String idprod=codpro.getText();
+         conexion conectar = new conexion();
+         Statement st = conectar.Conectar();
+         
+             try
+        {
+            boolean rt =st.execute("update producto  set stock='"+ss+"' where id_producto='"+idprod+"' ");
+
+  
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+   
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+   conexion conectar = new conexion();
+       Statement st = conectar.Conectar();        
         // seleccion la fila
         double i = JTableProduct.getSelectedRow();
         if (i == -1) {
-            JOptionPane.showMessageDialog(null, "Favor... seleccione una fila");
+            JOptionPane.showMessageDialog(null, "Porfavor... seleccione una fila");
         } else//de lo contrario si se selecciono la fila 
         {
             // coje variable de importe que elimino
@@ -775,9 +795,31 @@ public class AlmacenFerreteria extends javax.swing.JFrame {
         jTextFieldTotal.setText(String.valueOf(total));
         
         // eliminar fila
+          String yy= this.modelo.getValueAt((int) i, 3).toString();
+           String ff= this.modelo.getValueAt((int) i, 1).toString();
             this.modelo.removeRow((int) i);//i solita iba aqui
-            // restar un aticulos
+         
             n = n - 1;
+           int STOCK=Integer.parseInt(stock.getText().trim());
+           int ww =Integer.parseInt(yy.trim()); 
+           int xx= STOCK+ww;
+              String ss=xx+"";
+              
+                try
+        {
+
+            boolean rt =st.execute("update producto  set stock='"+ss+"' where id_producto='"+ff+"' ");
+
+           
+         
+
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+              
+              
+           
             // poner nuevo ciclo
             double num = 1;
             for (int w = 0; w < n; w = w + 1) {
@@ -861,18 +903,20 @@ String Fecha=dia+"-"+mes+"-"+año;
                                    + "| TOTAL |"));
             document.add(new Paragraph("----------------------------------------------------------------------"
                      + "--------------------------------------------------------"));
+            document.add(new Paragraph());
             // parte de dibujo la tabla
             PdfContentByte cb = writer.getDirectContent();
             PdfTemplate tp = cb.createTemplate(500, 500);
             Graphics2D g2;
-            g2 = tp.createGraphicsShapes(500, 500);
-            // g2 = tp.createGraphics(500, 500);
+            //g2 = tp.createGraphicsShapes(500, 500);
+             g2 = tp.createGraphics(500, 500);
             JTableProduct.print(g2);
             g2.dispose();
             cb.addTemplate(tp, 50, 15);
             
-              document.add(new Paragraph("-                                   Total a Pagar : $ "+totals+"  Dolares"));
-            
+             // document.add(new Paragraph("-                                   Total a Pagar : $ "+totals+"  Dolares"));
+     
+             document.add(new Paragraph(" Total a Pagar : $ "+totals+"  Dolares"));
             // PARA COLOCAR FOOTER
             Font font = new Font();
             font.setColor(BaseColor.GRAY);
@@ -929,20 +973,16 @@ String Fecha=dia+"-"+mes+"-"+año;
      
        conexion conectar = new conexion();
        Statement st = conectar.Conectar();
-       
-       
-       
-            
-            String Numerofactura=jTextFieldFactura.getText().trim();
-            int año=0;
-int mes=0;
-int dia=0;
-año=this.fecha.getCalendar().get(Calendar.YEAR);
- mes=this.fecha.getCalendar().get(Calendar.MONTH);
-mes =mes+1;
- dia=this.fecha.getCalendar().get(Calendar.DATE);
+       String Numerofactura=jTextFieldFactura.getText().trim();
+        int año=0;
+        int mes=0;
+        int dia=0;
+        año=this.fecha.getCalendar().get(Calendar.YEAR);
+         mes=this.fecha.getCalendar().get(Calendar.MONTH);
+        mes =mes+1;
+         dia=this.fecha.getCalendar().get(Calendar.DATE);
 
-String Fecha=dia+"-"+mes+"-"+año;
+        String Fecha=dia+"-"+mes+"-"+año;
            
             String Comentario=comentario.getText();
             String Nombreclie=jTextFieldNombre.getText();
@@ -950,13 +990,8 @@ String Fecha=dia+"-"+mes+"-"+año;
             String telefonoclie=telefono.getText();
             String Direccion=direccion.getText();
             String CI=ci.getText();
-            String id_detalle="";
-            String Id_factura="";
-            String ID_producto="";
-            String Producto="";
-            String Precio="";
             
-            
+        
             try
         {
 
@@ -964,13 +999,40 @@ String Fecha=dia+"-"+mes+"-"+año;
 
            JOptionPane.showMessageDialog(null,"factura ingresada");
          
+            try {
+                for (int i = 0; i < 11; i++) {
+                    
+                    String ID_producto = JTableProduct.getValueAt(i, 1).toString().trim();
+                    String Producto = JTableProduct.getValueAt(i, 2).toString();
+                    String Precio = JTableProduct.getValueAt(i, 4).toString().trim();
+                    String Cantidad = JTableProduct.getValueAt(i, 3).toString().trim();
+                    String PrecioT = JTableProduct.getValueAt(i, 5).toString().trim();
+//                    JOptionPane.showMessageDialog(null, ID_producto);
+//                    JOptionPane.showMessageDialog(null, "no se puede");
+                    boolean rf = st.execute("insert into detalle (id_producto,nombre_producto,precio_producto,cantidad,preciototal,id_factura)values('" + ID_producto + "','" + Producto + "','" + Precio + "','" + Cantidad + "','" + PrecioT + "','" + Numerofactura + "')");                    
+                    
+                }
+            } catch (HeadlessException headlessException) {
+            } catch (SQLException sQLException) {
+            }
+        
+       
 
         }
         catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex);
         }
+          
+            
+            
+         
         
-        
+             
+            
+          
+            
+            
+            
         
         
     }//GEN-LAST:event_jButton7ActionPerformed

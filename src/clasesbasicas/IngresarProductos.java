@@ -37,7 +37,7 @@ public class IngresarProductos extends JPanel {
         try{
         conexion conectar = new conexion();
         Statement st = conectar.Conectar();
-        ResultSet rs= st.executeQuery("SELECT razonsocial from producto");
+        ResultSet rs= st.executeQuery("SELECT razonsocial from proveedor");
         while (rs.next()){
         this.combo.addItem(rs.getString("razonsocial"));
         }
