@@ -5,6 +5,7 @@
  */
 package proyectopropietarios;
 
+import splashs.splash1;
 import clasesbasicas.IngresarClientes;
 import clasesbasicas.IngresarProductos;
 import clasesbasicas.IngresarProveedores;
@@ -13,7 +14,9 @@ import clasesbasicas.ModificarCliente;
 import clasesbasicas.ModificarProducto;
 import clasesbasicas.ModificarProveedor;
 import clasesbasicas.ModificarUsuario;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import splashs.*;
 
 /**
  *
@@ -26,6 +29,7 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
      */
     public pantallaInicialUsuario() {
         initComponents();
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/compras.png")).getImage());
     }
 
     /**
@@ -51,6 +55,7 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -62,16 +67,17 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
         ESCRITORIO.setLayout(ESCRITORIOLayout);
         ESCRITORIOLayout.setHorizontalGroup(
             ESCRITORIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         ESCRITORIOLayout.setVerticalGroup(
             ESCRITORIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 253, Short.MAX_VALUE)
         );
 
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuBar.setName("FERRETERIA JAVELAR"); // NOI18N
 
+        fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/cliente.png"))); // NOI18N
         fileMenu.setMnemonic('f');
         fileMenu.setText("Clientes");
 
@@ -95,6 +101,7 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
+        editMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/articulo.png"))); // NOI18N
         editMenu.setMnemonic('e');
         editMenu.setText("Articulos");
 
@@ -118,6 +125,7 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/proveedor.png"))); // NOI18N
         jMenu1.setText("Proveedores");
 
         jMenuItem1.setText("Registar Proveedores");
@@ -146,16 +154,33 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ventas.png"))); // NOI18N
         jMenu3.setText("Ventas");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nuevaVenta1.png"))); // NOI18N
         jMenuItem5.setText("Nueva Compra");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
+
+        jMenuItem7.setText("Buscar Factura");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
 
         menuBar.add(jMenu3);
 
+        helpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ayuda_1.png"))); // NOI18N
         helpMenu.setMnemonic('h');
         helpMenu.setText("Ayuda");
 
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/manual1.png"))); // NOI18N
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("Manual");
         helpMenu.add(aboutMenuItem);
@@ -183,35 +208,24 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-  JFrame frame = new JFrame();
-                frame.setContentPane(new IngresarClientes());
-               
-                frame.pack();
-                frame.setVisible(true);
+
+        new splash1().setVisible(true);
+       
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-           JFrame frame = new JFrame();
-                frame.setContentPane(new ModificarCliente());
-                
-                frame.pack();
-                frame.setVisible(true);
+        new splash2().setVisible(true);   
+        
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
-          JFrame frame = new JFrame();
-                frame.setContentPane(new IngresarProductos());
-                
-                frame.pack();
-                frame.setVisible(true);
+ new splash3().setVisible(true); 
+        
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
-        JFrame frame = new JFrame();
-                frame.setContentPane(new ModificarProducto());
-               
-                frame.pack();
-                frame.setVisible(true);
+ new splash4().setVisible(true); 
+       
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -229,6 +243,16 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
                 frame.pack();
                 frame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       AlmacenFerreteria p1= new AlmacenFerreteria();
+       p1.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+       buscarfactura p1= new buscarfactura();
+        p1.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,6 +304,7 @@ public class pantallaInicialUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
