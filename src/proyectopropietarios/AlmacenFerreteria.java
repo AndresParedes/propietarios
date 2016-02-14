@@ -871,6 +871,9 @@ mes =mes+1;
 
 String Fecha=dia+"-"+mes+"-"+año;
         String totals = jTextFieldTotal.getText();
+        String telefonoclie=telefono.getText();
+            String Direccion=direccion.getText();
+            String CI=ci.getText();
         Image imagen,publicidad;
         
         // CREA DOCUMENTOS CON TAMAÑO CARTAS Y MARGENE DE TODO LADO DE 50   
@@ -896,9 +899,12 @@ String Fecha=dia+"-"+mes+"-"+año;
             document.add(new Paragraph("RUC: 1890075564001 "));
             document.add(new Paragraph("Numero Fact: "+fact));
             document.add(new Paragraph("Cliente : "+Cliente));
+            document.add(new Paragraph("Cedula   : [ "+CI+" ]"));
             document.add(new Paragraph("Fecha   : [ "+Fecha+" ]"));
+            document.add(new Paragraph("Direccion   : [ "+Direccion+" ]"));
+            document.add(new Paragraph("Telefono   : [ "+telefonoclie+" ]"));
             document.add(new Paragraph(" "));
-            document.add(new Paragraph(""));
+            document.add(new Paragraph(" Total a Pagar : $ "+totals+"  Dolares"));
             document.add(new Paragraph("| Nº.  | COD. |    PRODUCTOS                                              | CANT | VALOR UNIT"
                                    + "| TOTAL |"));
             document.add(new Paragraph("----------------------------------------------------------------------"
@@ -906,17 +912,16 @@ String Fecha=dia+"-"+mes+"-"+año;
             document.add(new Paragraph());
             // parte de dibujo la tabla
             PdfContentByte cb = writer.getDirectContent();
-            PdfTemplate tp = cb.createTemplate(500, 500);
+            PdfTemplate tp = cb.createTemplate(500, 400);
             Graphics2D g2;
             //g2 = tp.createGraphicsShapes(500, 500);
-             g2 = tp.createGraphics(500, 500);
+             g2 = tp.createGraphics(500, 400);
             JTableProduct.print(g2);
             g2.dispose();
             cb.addTemplate(tp, 50, 15);
             
-             // document.add(new Paragraph("-                                   Total a Pagar : $ "+totals+"  Dolares"));
      
-             document.add(new Paragraph(" Total a Pagar : $ "+totals+"  Dolares"));
+             
             // PARA COLOCAR FOOTER
             Font font = new Font();
             font.setColor(BaseColor.GRAY);

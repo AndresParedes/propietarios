@@ -297,7 +297,8 @@ public class pantallaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
+       buscarfactura p1= new buscarfactura();
+        p1.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
