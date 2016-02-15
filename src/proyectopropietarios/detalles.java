@@ -98,6 +98,7 @@ public String Cod;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        tabla.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -70,6 +70,7 @@ public class pantallaInicialCajero extends javax.swing.JFrame {
             .addGap(0, 253, Short.MAX_VALUE)
         );
 
+        menuBar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 102, 102)));
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuBar.setName("FERRETERIA JAVELAR"); // NOI18N
 
