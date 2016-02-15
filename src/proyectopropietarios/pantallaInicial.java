@@ -62,8 +62,6 @@ public class pantallaInicial extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         ESCRITORIO.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout ESCRITORIOLayout = new javax.swing.GroupLayout(ESCRITORIO);
@@ -74,8 +72,10 @@ public class pantallaInicial extends javax.swing.JFrame {
         );
         ESCRITORIOLayout.setVerticalGroup(
             ESCRITORIOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 253, Short.MAX_VALUE)
+            .addGap(0, 227, Short.MAX_VALUE)
         );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         menuBar.setName("FERRETERIA JAVELAR"); // NOI18N
@@ -84,6 +84,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Clientes");
 
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Registrar Cliente");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +94,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         fileMenu.add(openMenuItem);
 
+        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/buscar.png"))); // NOI18N
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Buscar Clientes");
         saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +110,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Articulos");
 
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Registrar Articulos");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +120,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/ICONBODEGA.png"))); // NOI18N
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Lista de articulos en Stock");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +135,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/proveedor.png"))); // NOI18N
         jMenu1.setText("Proveedores");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
         jMenuItem1.setText("Registar Proveedores");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +144,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ICON_LIST_PROV.png"))); // NOI18N
         jMenuItem2.setText("Lista de Proveedores");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +153,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/shipping.png"))); // NOI18N
         jMenuItem6.setText("Nuevo Pedido");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,11 +226,11 @@ public class pantallaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ESCRITORIO, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ESCRITORIO, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGap(0, 227, Short.MAX_VALUE)
         );
 
         pack();
