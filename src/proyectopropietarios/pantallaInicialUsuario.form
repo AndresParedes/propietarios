@@ -28,6 +28,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="openMenuItem">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/registro_usuario1.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="111"/>
                 <Property name="text" type="java.lang.String" value="Registrar Cliente"/>
               </Properties>
@@ -37,6 +40,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="saveMenuItem">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/buscar.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="115"/>
                 <Property name="text" type="java.lang.String" value="Buscar Clientes"/>
               </Properties>
@@ -57,6 +63,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="cutMenuItem">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/LOG_REG.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="116"/>
                 <Property name="text" type="java.lang.String" value="Registrar Articulos"/>
               </Properties>
@@ -66,6 +75,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="copyMenuItem">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/ICONBODEGA.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="121"/>
                 <Property name="text" type="java.lang.String" value="Lista de articulos en Stock"/>
               </Properties>
@@ -85,6 +97,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/registro_usuario1.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registar Proveedores"/>
               </Properties>
               <Events>
@@ -93,6 +108,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/ICON_LIST_PROV.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Lista de Proveedores"/>
               </Properties>
               <Events>
@@ -101,6 +119,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/shipping.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nuevo Pedido"/>
               </Properties>
               <Events>
@@ -130,6 +151,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/icon/Lupa_icon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Factura"/>
               </Properties>
               <Events>
