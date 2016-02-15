@@ -165,6 +165,8 @@ public class IngresarProductos extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), nombreProductoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        nombreProductoField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.proveedor}"), proveedorField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
@@ -183,17 +185,23 @@ public class IngresarProductos extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), stockField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        stockField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.stockmedio}"), stockmedioField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), stockmedioField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        stockmedioField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.stockminimo}"), stockminimoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), stockminimoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        stockminimoField.addKeyListener(formListener);
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.iva}"), ivaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -360,7 +368,7 @@ public class IngresarProductos extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -374,6 +382,27 @@ public class IngresarProductos extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 IngresarProductos.this.deleteButtonActionPerformed(evt);
+            }
+        }
+
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            if (evt.getSource() == stockField) {
+                IngresarProductos.this.stockFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == stockmedioField) {
+                IngresarProductos.this.stockmedioFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == stockminimoField) {
+                IngresarProductos.this.stockminimoFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == nombreProductoField) {
+                IngresarProductos.this.nombreProductoFieldKeyTyped(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -431,6 +460,56 @@ public class IngresarProductos extends JPanel {
             list.addAll(merged);
         }
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void stockFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stockFieldKeyTyped
+        char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_stockFieldKeyTyped
+
+    private void stockmedioFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stockmedioFieldKeyTyped
+        char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_stockmedioFieldKeyTyped
+
+    private void stockminimoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stockminimoFieldKeyTyped
+        char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_stockminimoFieldKeyTyped
+
+    private void nombreProductoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreProductoFieldKeyTyped
+             char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+            
+               
+          } 
+    }//GEN-LAST:event_nombreProductoFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

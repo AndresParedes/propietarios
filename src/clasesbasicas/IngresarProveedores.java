@@ -214,6 +214,8 @@ public class IngresarProveedores extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), contactoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        contactoField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.ext1}"), ext1Field, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
@@ -371,7 +373,7 @@ public class IngresarProveedores extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == guardar) {
@@ -385,6 +387,18 @@ public class IngresarProveedores extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 IngresarProveedores.this.deleteButtonActionPerformed(evt);
+            }
+        }
+
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            if (evt.getSource() == contactoField) {
+                IngresarProveedores.this.contactoFieldKeyTyped(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -439,6 +453,20 @@ public class IngresarProveedores extends JPanel {
             list.addAll(merged);
         }
     }//GEN-LAST:event_guardarActionPerformed
+
+    private void contactoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactoFieldKeyTyped
+             char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+            
+               
+          } 
+    }//GEN-LAST:event_contactoFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

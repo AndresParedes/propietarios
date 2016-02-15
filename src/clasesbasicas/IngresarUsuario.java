@@ -103,6 +103,8 @@ public class IngresarUsuario extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), nombreField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        nombreField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.contraseña}"), contraseñaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
@@ -251,6 +253,9 @@ public class IngresarUsuario extends JPanel {
             else if (evt.getSource() == tipoField) {
                 IngresarUsuario.this.tipoFieldKeyTyped(evt);
             }
+            else if (evt.getSource() == nombreField) {
+                IngresarUsuario.this.nombreFieldKeyTyped(evt);
+            }
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -326,6 +331,20 @@ tipoField.setText(COMBO);
         
         
     }//GEN-LAST:event_tipoFieldKeyTyped
+
+    private void nombreFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFieldKeyTyped
+            char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+            
+               
+          } 
+    }//GEN-LAST:event_nombreFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

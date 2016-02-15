@@ -125,11 +125,15 @@ public class IngresarClientes extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), nombreField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        nombreField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.documento}"), documentoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), documentoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        documentoField.addKeyListener(formListener);
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.direccion1}"), direccion1Field, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -149,11 +153,15 @@ public class IngresarClientes extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), telefonoField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        telefonoField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.celular}"), celularField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), celularField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        celularField.addKeyListener(formListener);
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.correo}"), correoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
@@ -273,7 +281,7 @@ public class IngresarClientes extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -287,6 +295,27 @@ public class IngresarClientes extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 IngresarClientes.this.deleteButtonActionPerformed(evt);
+            }
+        }
+
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            if (evt.getSource() == nombreField) {
+                IngresarClientes.this.nombreFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == documentoField) {
+                IngresarClientes.this.documentoFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == telefonoField) {
+                IngresarClientes.this.telefonoFieldKeyTyped(evt);
+            }
+            else if (evt.getSource() == celularField) {
+                IngresarClientes.this.celularFieldKeyTyped(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -341,6 +370,56 @@ public class IngresarClientes extends JPanel {
             list.addAll(merged);
         }
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void nombreFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFieldKeyTyped
+                 char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+            
+               
+          } 
+    }//GEN-LAST:event_nombreFieldKeyTyped
+
+    private void documentoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_documentoFieldKeyTyped
+         char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_documentoFieldKeyTyped
+
+    private void telefonoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoFieldKeyTyped
+       char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_telefonoFieldKeyTyped
+
+    private void celularFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_celularFieldKeyTyped
+         char c=evt.getKeyChar();
+
+        if(c<'0'|| c>'9') {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }
+
+    }//GEN-LAST:event_celularFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

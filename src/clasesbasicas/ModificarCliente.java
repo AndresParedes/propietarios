@@ -124,6 +124,8 @@ public class ModificarCliente extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), nombreField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        nombreField.addKeyListener(formListener);
+
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.documento}"), documentoField, org.jdesktop.beansbinding.BeanProperty.create("text"));
         binding.setSourceUnreadableValue("null");
         bindingGroup.addBinding(binding);
@@ -270,7 +272,7 @@ public class ModificarCliente extends JPanel {
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements java.awt.event.ActionListener {
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             if (evt.getSource() == saveButton) {
@@ -284,6 +286,18 @@ public class ModificarCliente extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 ModificarCliente.this.deleteButtonActionPerformed(evt);
+            }
+        }
+
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+        }
+
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            if (evt.getSource() == nombreField) {
+                ModificarCliente.this.nombreFieldKeyTyped(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -339,6 +353,20 @@ public class ModificarCliente extends JPanel {
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void nombreFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreFieldKeyTyped
+            char c=evt.getKeyChar(); 
+             
+         
+          if(Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+            
+               
+          } 
+    }//GEN-LAST:event_nombreFieldKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
