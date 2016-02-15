@@ -84,7 +84,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Clientes");
 
-        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/registro_usuario1.png"))); // NOI18N
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Registrar Cliente");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +110,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         editMenu.setMnemonic('e');
         editMenu.setText("Articulos");
 
-        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/LOG_REG.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Registrar Articulos");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         editMenu.add(cutMenuItem);
 
-        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/ICONBODEGA.png"))); // NOI18N
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ICONBODEGA.png"))); // NOI18N
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Lista de articulos en Stock");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +135,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/proveedor.png"))); // NOI18N
         jMenu1.setText("Proveedores");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectopropietarios/LOG_REG.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/registro_usuario1.png"))); // NOI18N
         jMenuItem1.setText("Registar Proveedores");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,6 +176,7 @@ public class pantallaInicial extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Lupa_icon.png"))); // NOI18N
         jMenuItem7.setText("Buscar Factura");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
